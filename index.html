@@ -2591,7 +2591,7 @@ async function initGoogleReviews() {
       id: 'ChIJUdcxh3SdmAARyFHQtlinlT4'
     });
     await place.fetchFields({
-      fields: ['reviews', 'rating', 'userRatingCount', 'googleMapsUri']
+      fields: ['reviews', 'rating', 'userRatingCount']
     });
     var grid = document.getElementById('aval-grid');
     var reviews = (place.reviews || []).slice(0, 4);
@@ -2620,7 +2620,6 @@ async function initGoogleReviews() {
         + '</div>';
     }).join('');
     var gLink = document.getElementById('gReviewsLink');
-    if (gLink && place.googleMapsUri) gLink.href = place.googleMapsUri;
   } catch(err) {
     console.error('Google Reviews error:', err);
     document.getElementById('aval-grid').innerHTML = '';
