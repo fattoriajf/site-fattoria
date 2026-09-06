@@ -66,7 +66,7 @@ p { max-width: 60ch; line-height: 1.78; color: var(--text-muted); }
 .btn-full { width: 100%; justify-content: center; padding: 1rem; }
 
 /* — NAV — */
-#nav { position: fixed; inset: 0 0 auto; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.6rem clamp(1.5rem,5vw,4rem); transition: background .35s, padding .35s, border-color .35s, box-shadow .35s; border-bottom: 1px solid transparent; }
+#nav { position: fixed; inset: 0 0 auto; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.6rem clamp(1.5rem,5vw,4rem); padding-top: max(1.6rem, calc(env(safe-area-inset-top) + 0.8rem)); transition: background .35s, padding .35s, border-color .35s, box-shadow .35s; border-bottom: 1px solid transparent; }
 #nav.scrolled { background: var(--nav-glass); backdrop-filter: blur(18px); padding: 1rem clamp(1.5rem,5vw,4rem); border-color: var(--border); box-shadow: 0 1px 18px rgba(30,43,71,.07); }
 .logo-link { display: flex; align-items: center; text-decoration: none; }
 .logo-img { height: 56px; width: auto; filter: brightness(0) invert(1); transition: filter .35s; }
@@ -99,6 +99,7 @@ p { max-width: 60ch; line-height: 1.78; color: var(--text-muted); }
   align-items: center; justify-content: center;
   background: var(--bg); position: relative; overflow: hidden;
   padding: 2.5rem clamp(1.5rem, 5vw, 2.5rem);
+  padding-top: calc(5rem + env(safe-area-inset-top, 0px));
 }
 .lp-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 25%, rgba(0,146,73,.04) 0%, transparent 65%), radial-gradient(ellipse 60% 50% at 80% 85%, rgba(200,169,110,.06) 0%, transparent 60%); pointer-events: none; }
 .lp-inner { position: relative; z-index: 1; width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 1.75rem; }
