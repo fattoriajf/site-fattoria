@@ -2594,7 +2594,7 @@ async function initGoogleReviews() {
       fields: ['reviews', 'rating', 'userRatingCount']
     });
     var grid = document.getElementById('aval-grid');
-    var reviews = (place.reviews || []).slice(0, 4);
+    var reviews = (place.reviews || []).filter(function(r){ return r.rating === 5; }).slice(0, 4);
     if (!reviews.length) { grid.innerHTML = ''; return; }
     grid.innerHTML = reviews.map(function(r) {
       var rating = r.rating || 5;
