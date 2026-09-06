@@ -2585,53 +2585,46 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
 </script>
 
 <script>
-function initGoogleReviews() {
-  var svc = new google.maps.places.PlacesService(document.createElement('div'));
-
-  // Place ID fixo da Fattoria Pizza Napoletana - Juiz de Fora
-  svc.getDetails({
-      placeId: 'ChIJUdcxh3SdmAARyFHQtlinlT4',
-      fields: ['rating', 'user_ratings_total', 'reviews', 'url'],
-      language: 'pt-BR'
-    }, function(place, status2) {
-      if (status2 !== google.maps.places.PlacesServiceStatus.OK) {
-        document.getElementById('aval-grid').innerHTML = '';
-        return;
-      }
-
-      var grid = document.getElementById('aval-grid');
-      var reviews = (place.reviews || []).slice(0, 4);
-
-      if (!reviews.length) {
-        grid.innerHTML = '';
-        return;
-      }
-
-      grid.innerHTML = reviews.map(function(r) {
-        var stars = '';
-        for (var i = 0; i < 5; i++) stars += i < r.rating ? '★' : '☆';
-        var initial = (r.author_name || 'G').charAt(0).toUpperCase();
-        var avatar = r.profile_photo_url
-          ? '<img src="' + r.profile_photo_url + '" alt="' + r.author_name + '" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">'
-          : '<div class="aval-avatar">' + initial + '</div>';
-        var text = r.text.length > 220 ? r.text.substring(0, 220) + '…' : r.text;
-        return '<div class="aval-card">'
-          + '<div class="aval-stars">' + stars + '</div>'
-          + '<p class="aval-text">&ldquo;' + text + '&rdquo;</p>'
-          + '<div class="aval-author">'
-          +   avatar
-          +   '<div class="aval-info">'
-          +     '<span class="aval-name">' + r.author_name + '</span>'
-          +     '<span class="aval-source">via Google</span>'
-          +   '</div>'
-          + '</div>'
-          + '</div>';
-      }).join('');
-
-      // Atualiza link "Ver no Google" com URL real do lugar
-      var gLink = document.getElementById('gReviewsLink');
-      if (gLink && place.url) gLink.href = place.url;
+async function initGoogleReviews() {
+  try {
+    var place = new google.maps.places.Place({
+      id: 'ChIJUdcxh3SdmAARyFHQtlinlT4'
     });
+    await place.fetchFields({
+      fields: ['reviews', 'rating', 'userRatingCount', 'googleMapsUri']
+    });
+    var grid = document.getElementById('aval-grid');
+    var reviews = (place.reviews || []).slice(0, 4);
+    if (!reviews.length) { grid.innerHTML = ''; return; }
+    grid.innerHTML = reviews.map(function(r) {
+      var rating = r.rating || 5;
+      var stars = '';
+      for (var i = 0; i < 5; i++) stars += i < rating ? '★' : '☆';
+      var authorName = r.authorAttribution ? r.authorAttribution.displayName : 'G';
+      var photoUrl = r.authorAttribution ? r.authorAttribution.photoURI : null;
+      var initial = (authorName || 'G').charAt(0).toUpperCase();
+      var avatar = photoUrl
+        ? '<img src="' + photoUrl + '" alt="' + authorName + '" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">'
+        : '<div class="aval-avatar">' + initial + '</div>';
+      var text = r.text ? (r.text.length > 220 ? r.text.substring(0, 220) + '…' : r.text) : '';
+      return '<div class="aval-card">'
+        + '<div class="aval-stars">' + stars + '</div>'
+        + '<p class="aval-text">&ldquo;' + text + '&rdquo;</p>'
+        + '<div class="aval-author">'
+        +   avatar
+        +   '<div class="aval-info">'
+        +     '<span class="aval-name">' + authorName + '</span>'
+        +     '<span class="aval-source">via Google</span>'
+        +   '</div>'
+        + '</div>'
+        + '</div>';
+    }).join('');
+    var gLink = document.getElementById('gReviewsLink');
+    if (gLink && place.googleMapsUri) gLink.href = place.googleMapsUri;
+  } catch(err) {
+    console.error('Google Reviews error:', err);
+    document.getElementById('aval-grid').innerHTML = '';
+  }
 }
 </script>
 
