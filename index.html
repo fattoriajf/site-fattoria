@@ -541,7 +541,7 @@ body.edit-mode { padding-top: 48px; }
 @media (max-width: 768px) {
   .nav-links, .nav-end { display: none; }
   .pcard-grid { grid-template-columns: 1fr 1fr; }
-  .sub-tabs { overflow-x: hidden; flex-wrap: wrap; overscroll-behavior-x: none; touch-action: auto; }
+  .sub-tabs { overflow-x: auto; flex-wrap: nowrap; overscroll-behavior: contain; touch-action: pan-x; -webkit-overflow-scrolling: auto; position: relative; }
   .hamburger { display: flex; }
   .sobre-grid, .reservas-grid, .delivery-grid, .trabalhe-grid { grid-template-columns: 1fr; }
   .sobre-img { aspect-ratio: 4/3; }
