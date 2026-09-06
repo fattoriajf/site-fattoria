@@ -629,7 +629,7 @@ fbq('track','PageView');
 src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZevlEV7ArOs9G0C_KZpKiXvB-iHjEL2I&libraries=places&language=pt-BR&callback=initGoogleReviews"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZevlEV7ArOs9G0C_KZpKiXvB-iHjEL2I&libraries=places&language=pt-BR&callback=initGoogleReviews"></script>
 </head>
 <body>
 
@@ -2333,7 +2333,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
         <span class="eyebrow">Avaliações</span>
         <h2 class="disp-lg" style="margin-top:.5rem;">O que nossos<br><em>clientes dizem</em></h2>
       </div>
-      <a href="https://g.co/kgs/fattoriapizza" target="_blank" rel="noopener" class="btn btn-outline">Ver no Google →</a>
+      <a id="gReviewsLink" href="https://www.google.com/maps/place/?q=place_id:ChIJUdcxh3SdmAARyFHQtlinlT4" target="_blank" rel="noopener" class="btn btn-outline">Ver no Google →</a>
     </div>
         <div id="aval-grid" class="aval-grid rv" style="margin-top:2.5rem;">
       <!-- carregando avaliações do Google... -->
@@ -2588,20 +2588,9 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
 function initGoogleReviews() {
   var svc = new google.maps.places.PlacesService(document.createElement('div'));
 
-  // Busca pelo nome + cidade para encontrar o Place ID
-  svc.textSearch({
-    query: 'Fattoria Pizza Napoletana Juiz de Fora MG',
-    type: ['restaurant']
-  }, function(results, status) {
-    if (status !== google.maps.places.PlacesServiceStatus.OK || !results.length) {
-      document.getElementById('aval-grid').innerHTML = '';
-      return;
-    }
-    var placeId = results[0].place_id;
-
-    // Busca detalhes com avaliações
-    svc.getDetails({
-      placeId: placeId,
+  // Place ID fixo da Fattoria Pizza Napoletana - Juiz de Fora
+  svc.getDetails({
+      placeId: 'ChIJUdcxh3SdmAARyFHQtlinlT4',
       fields: ['rating', 'user_ratings_total', 'reviews', 'url'],
       language: 'pt-BR'
     }, function(place, status2) {
@@ -2640,10 +2629,9 @@ function initGoogleReviews() {
       }).join('');
 
       // Atualiza link "Ver no Google" com URL real do lugar
-      var gLink = document.querySelector('#avaliacoes a[href*="g.co"]');
+      var gLink = document.getElementById('gReviewsLink');
       if (gLink && place.url) gLink.href = place.url;
     });
-  });
 }
 </script>
 
