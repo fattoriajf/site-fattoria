@@ -96,7 +96,7 @@ body.mob-open .hamburger span:nth-child(3) { transform: translateY(-6.5px) rotat
 
 .mob-backdrop { position: fixed; inset: 0; z-index: 209; background: rgba(0,0,0,.45); opacity: 0; pointer-events: none; transition: opacity .38s; }
 .mob-backdrop.open { opacity: 1; pointer-events: all; }
-.mobile-nav { display: flex; flex-direction: column; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; right: 0; height: 58vh; z-index: 210; background: var(--bg-deep); gap: .9rem; transform: translateY(-100%); transition: transform .4s cubic-bezier(.4,0,.2,1); pointer-events: none; border-bottom: 1px solid var(--border); }
+.mobile-nav { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; position: fixed; top: 0; left: 0; right: 0; height: 58vh; z-index: 210; background: var(--bg-deep); gap: .9rem; transform: translateY(-100%); transition: transform .4s cubic-bezier(.4,0,.2,1); pointer-events: none; border-bottom: 1px solid var(--border); overflow: hidden; padding-top: calc(env(safe-area-inset-top, 0px) + 5rem); padding-bottom: 1.5rem; }
 .mobile-nav.open { transform: translateY(0); pointer-events: all; }
 .mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 300; color: var(--text); letter-spacing: .04em; transition: color .2s; }
 .mobile-nav a:hover { color: var(--verde); }
