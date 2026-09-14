@@ -108,7 +108,7 @@ body.mob-open .hamburger span:nth-child(3) { transform: translateY(-6.5px) rotat
   align-items: center; justify-content: center;
   background: var(--bg); position: relative; overflow: hidden;
   padding: 2.5rem clamp(1.5rem, 5vw, 2.5rem);
-  padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+  padding-top: 8rem;
 }
 .lp-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 25%, rgba(0,146,73,.04) 0%, transparent 65%), radial-gradient(ellipse 60% 50% at 80% 85%, rgba(200,169,110,.06) 0%, transparent 60%); pointer-events: none; }
 .lp-inner { position: relative; z-index: 1; width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 1.75rem; }
@@ -551,6 +551,7 @@ body.edit-mode { padding-top: 48px; }
 @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 768px) {
   .nav-links, .nav-end { display: none; }
+  #linkpage { padding-top: calc(5rem + env(safe-area-inset-top, 0px)); }
   .pcard-grid { grid-template-columns: 1fr 1fr; }
   .sub-tabs { overflow-x: auto; flex-wrap: nowrap; overscroll-behavior: contain; touch-action: pan-x; -webkit-overflow-scrolling: auto; position: relative; }
   .hero-actions { justify-content: center; }
