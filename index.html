@@ -89,18 +89,12 @@ p { max-width: 60ch; line-height: 1.78; color: var(--text-muted); }
 #nav:not(.scrolled) .btn-outline:hover { color: #fff; border-color: rgba(240,232,220,.6); }
 #nav:not(.scrolled) .btn-verde { box-shadow: 0 0 0 1px rgba(240,232,220,.12); }
 #nav:not(.scrolled) .hamburger span { background: rgba(240,232,220,.9); }
-.mobile-nav.open ~ #nav .hamburger span:nth-child(1),
-body.mob-open .hamburger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-body.mob-open .hamburger span:nth-child(2) { opacity: 0; }
-body.mob-open .hamburger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-.mob-backdrop { position: fixed; inset: 0; z-index: 209; background: rgba(0,0,0,.45); opacity: 0; pointer-events: none; transition: opacity .38s; }
-.mob-backdrop.open { opacity: 1; pointer-events: all; }
-.mobile-nav { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; position: fixed; top: 0; left: 0; right: 0; height: 58vh; z-index: 210; background: var(--bg-deep); gap: .9rem; transform: translateY(-100%); transition: transform .4s cubic-bezier(.4,0,.2,1); pointer-events: none; border-bottom: 1px solid var(--border); overflow: hidden; padding-top: calc(env(safe-area-inset-top, 0px) + 5rem); padding-bottom: 1.5rem; }
-.mobile-nav.open { transform: translateY(0); pointer-events: all; }
-.mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 300; color: var(--text); letter-spacing: .04em; transition: color .2s; }
+.mobile-nav { display: none; position: fixed; inset: 0; z-index: 210; background: var(--bg-deep); flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--text); transition: color .2s; }
 .mobile-nav a:hover { color: var(--verde); }
-.mob-close { position: absolute; top: max(.9rem, calc(env(safe-area-inset-top) + .6rem)); right: 1rem; font-size: 1.1rem; color: var(--text-muted); padding: .6rem; line-height: 1; cursor: pointer; z-index: 1; }
+.mob-close { position: absolute; top: .9rem; right: .9rem; font-size: 1.4rem; color: var(--text-muted); padding: .7rem; line-height: 1; cursor: pointer; z-index: 1; }
 
 /* ── LINK PAGE ── */
 #linkpage {
@@ -108,7 +102,7 @@ body.mob-open .hamburger span:nth-child(3) { transform: translateY(-6.5px) rotat
   align-items: center; justify-content: center;
   background: var(--bg); position: relative; overflow: hidden;
   padding: 2.5rem clamp(1.5rem, 5vw, 2.5rem);
-  padding-top: 8rem;
+  padding-top: calc(5rem + env(safe-area-inset-top, 0px));
 }
 .lp-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 25%, rgba(0,146,73,.04) 0%, transparent 65%), radial-gradient(ellipse 60% 50% at 80% 85%, rgba(200,169,110,.06) 0%, transparent 60%); pointer-events: none; }
 .lp-inner { position: relative; z-index: 1; width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 1.75rem; }
@@ -137,10 +131,10 @@ body.mob-open .hamburger span:nth-child(3) { transform: translateY(-6.5px) rotat
 .lp-btn-wa { background: rgba(37,211,102,.08); color: #1aaa52; border: 1.5px solid rgba(37,211,102,.32); }
 .lp-btn-wa:hover { background: rgba(37,211,102,.15); border-color: #25D366; color: #109c45; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,.14); }
 .lp-btn-wa .lp-ico svg { fill: currentColor; }
-.lp-btn-google { background: transparent; color: var(--text-muted); border: 1.5px solid var(--border-hi); }
-.lp-btn-google:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 .lp-btn-eventos { background: rgba(139,92,246,.07); color: #7c3aed; border: 1.5px solid rgba(139,92,246,.28); }
 .lp-btn-eventos:hover { background: rgba(139,92,246,.14); border-color: #7c3aed; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(139,92,246,.14); }
+.lp-btn-google { background: transparent; color: var(--text-muted); border: 1.5px solid var(--border-hi); }
+.lp-btn-google:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 .lp-btn-map { background: transparent; color: var(--text-muted); border: 1.5px solid var(--border-hi); }
 .lp-btn-map:hover { border-color: var(--text); color: var(--text); transform: translateY(-2px); }
 .lp-footer-txt { font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); text-align: center; margin-top: .5rem; }
@@ -551,7 +545,6 @@ body.edit-mode { padding-top: 48px; }
 @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 768px) {
   .nav-links, .nav-end { display: none; }
-  #linkpage { padding-top: calc(5rem + env(safe-area-inset-top, 0px)); }
   .pcard-grid { grid-template-columns: 1fr 1fr; }
   .sub-tabs { overflow-x: auto; flex-wrap: nowrap; overscroll-behavior: contain; touch-action: pan-x; -webkit-overflow-scrolling: auto; position: relative; }
   .hero-actions { justify-content: center; }
@@ -671,7 +664,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
 <!-- Mobile nav -->
 <nav class="mobile-nav" id="mobNav">
   <button class="mob-close" id="mobClose">✕</button>
-  <a href="#linkpage" class="mob-lnk" style="font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--verde);">← Início</a>
+  <a href="#linkpage" class="mob-lnk" style="font-size:1.1rem;color:var(--verde);">← Início</a>
   <a href="#sobre" class="mob-lnk">Nossa História</a>
   <a href="#cardapio" class="mob-lnk">Cardápio</a>
   <a href="#reservas" class="mob-lnk">Reservas</a>
@@ -681,8 +674,8 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
   <a href="#trabalhe" class="mob-lnk">Trabalhe Conosco</a>
   <a href="#faq" class="mob-lnk">FAQ</a>
   <a href="#avaliacoes" class="mob-lnk">Avaliações</a>
-  <a href="https://wa.me/553233210663" id="mobWA" data-lnk="wa" class="btn btn-verde mob-lnk" style="margin-top:.6rem;font-size:.8rem;padding:.55rem 1.4rem;">WhatsApp</a>
-  <a href="#" id="mobEventos" data-lnk="eventos" class="btn btn-outline mob-lnk" style="font-size:.8rem;padding:.55rem 1.4rem;border-color:var(--border);">🎉 Eventos</a>
+  <a href="https://wa.me/553233210663" id="mobWA" data-lnk="wa" class="btn btn-verde" style="margin-top:1.5rem;">WhatsApp</a>
+  <a href="https://wa.me/553239379028" id="mobEventos" data-lnk="eventos" class="btn btn-outline mob-lnk" style="font-size:.8rem;padding:.55rem 1.4rem;border-color:rgba(139,92,246,.4);color:#7c3aed;">🎉 Eventos</a>
 </nav>
 
 <!-- ════ LINK PAGE ════ -->
@@ -712,7 +705,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
         <span class="lp-lbl">WhatsApp</span>
         <span class="lp-arr">→</span>
       </a>
-      <a href="#" id="lpEventos" data-lnk="eventos" class="lp-btn lp-btn-eventos" target="_blank" rel="noopener">
+      <a href="https://wa.me/553239379028" id="lpEventos" data-lnk="eventos" class="lp-btn lp-btn-eventos" target="_blank" rel="noopener">
         <span class="lp-ico">🎉</span>
         <span class="lp-lbl">Eventos</span>
         <span class="lp-arr">→</span>
@@ -2412,20 +2405,9 @@ addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 70))
 
 // Mobile menu
 const mobNav = document.getElementById('mobNav');
-(function(){
-  var ham = document.getElementById('ham');
-  var mobNav = document.getElementById('mobNav');
-  var mobClose = document.getElementById('mobClose');
-  var backdrop = document.createElement('div');
-  backdrop.className = 'mob-backdrop';
-  document.body.appendChild(backdrop);
-  function openMob(){ mobNav.classList.add('open'); backdrop.classList.add('open'); document.body.classList.add('mob-open'); document.body.style.overflow='hidden'; }
-  function closeMob(){ mobNav.classList.remove('open'); backdrop.classList.remove('open'); document.body.classList.remove('mob-open'); document.body.style.overflow=''; }
-  ham.addEventListener('click', openMob);
-  mobClose.addEventListener('click', closeMob);
-  backdrop.addEventListener('click', closeMob);
-  document.querySelectorAll('.mob-lnk').forEach(function(l){ l.addEventListener('click', closeMob); });
-})();
+document.getElementById('ham').addEventListener('click', () => mobNav.classList.add('open'));
+document.getElementById('mobClose').addEventListener('click', () => mobNav.classList.remove('open'));
+document.querySelectorAll('.mob-lnk').forEach(l => l.addEventListener('click', () => mobNav.classList.remove('open')));
 
 // Scroll reveal
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
