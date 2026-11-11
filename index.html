@@ -259,7 +259,9 @@ body.edit-mode .pcard-img:hover::after { opacity: 1; }
 .pcard-body { padding: 1.25rem 1.3rem; }
 .pcard-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .45rem; gap: .5rem; }
 .pcard-name { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; font-weight: 500; line-height: 1.2; }
-.pcard-price { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--gold); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pcard-price { display: flex; flex-direction: column; align-items: flex-end; gap: 0; }
+.pcard-price-line { font-family: 'Cormorant Garamond', serif; font-size: 1.0rem; font-weight: 600; color: var(--gold); white-space: nowrap; font-variant-numeric: tabular-nums; display: flex; align-items: baseline; gap: .25rem; line-height: 1.45; }
+.pcard-sz { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .56rem; font-weight: 500; color: var(--text-dim); text-transform: uppercase; letter-spacing: .07em; }
 .pcard-desc { font-size: .74rem; color: var(--text-muted); line-height: 1.5; margin-bottom: .5rem; }
 .ver-mais-wrap { text-align: center; padding: 1.75rem 0 .5rem; }
 .ver-mais-btn { font-size: .73rem; }
@@ -587,7 +589,7 @@ body.edit-mode { padding-top: 48px; }
   .pcard-ph-icon { font-size: 1.6rem; }
   .pcard-body { padding: .75rem .8rem; }
   .pcard-name { font-size: .9rem; }
-  .pcard-price { font-size: .88rem; }
+  .pcard-price-line { font-size: .88rem; }
   .pcard-desc { font-size: .68rem; }
 
   /* Show all extras on mobile — no "Ver mais" barrier */
@@ -933,7 +935,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-1-name" contenteditable="false">Marinara</div>
-              <div class="pcard-price" data-eid="pz-1-price" contenteditable="false">R$ 65,00</div>
+              <div class="pcard-price" data-eid="pz-1-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 42</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 65</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-1-desc" contenteditable="false">Molho pomodoro, alho em lascas, azeite de oliva e especiarias</div>
           </div>
@@ -943,7 +945,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-2-name" contenteditable="false">Vegana</div>
-              <div class="pcard-price" data-eid="pz-2-price" contenteditable="false">R$ 70,00</div>
+              <div class="pcard-price" data-eid="pz-2-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 45</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 70</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-2-desc" contenteditable="false">Molho pomodoro, tomate confit, alho em lascas, azeitona preta, manjericão fresco, azeite de oliva e especiarias</div>
             <span class="pizza-tag veg">Vegana</span>
@@ -954,7 +956,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-3-name" contenteditable="false">Fattoria</div>
-              <div class="pcard-price" data-eid="pz-3-price" contenteditable="false">R$ 99,00</div>
+              <div class="pcard-price" data-eid="pz-3-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 61</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 99</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-3-desc" contenteditable="false">Molho pomodoro, muçarela, lombo canadense, abacaxi em calda, geleia de pimenta e parmesão ralado</div>
             <span class="pizza-tag chef">Casa</span>
@@ -965,7 +967,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-5-name" contenteditable="false">Provola & Pepe</div>
-              <div class="pcard-price" data-eid="pz-5-price" contenteditable="false">R$ 95,00</div>
+              <div class="pcard-price" data-eid="pz-5-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 58</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 95</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-5-desc" contenteditable="false">Molho pomodoro, manjericão, muçarela, provolone, pimenta do reino e especiarias</div>
           </div>
@@ -975,7 +977,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-6-name" contenteditable="false">Provola & Arancia</div>
-              <div class="pcard-price" data-eid="pz-6-price" contenteditable="false">R$ 105,00</div>
+              <div class="pcard-price" data-eid="pz-6-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 63</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 105</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-6-desc" contenteditable="false">Molho pomodoro, muçarela, provolone e geleia de laranja</div>
           </div>
@@ -985,7 +987,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-7-name" contenteditable="false">Peito de Peru</div>
-              <div class="pcard-price" data-eid="pz-7-price" contenteditable="false">R$ 98,00</div>
+              <div class="pcard-price" data-eid="pz-7-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 62</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 101</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-7-desc" contenteditable="false">Molho pomodoro, muçarela, peito de peru, catupiry e especiarias</div>
           </div>
@@ -995,7 +997,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-8-name" contenteditable="false">Frango com Catupiry</div>
-              <div class="pcard-price" data-eid="pz-8-price" contenteditable="false">R$ 98,00</div>
+              <div class="pcard-price" data-eid="pz-8-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 61</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 99</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-8-desc" contenteditable="false">Molho pomodoro, muçarela, frango desfiado, catupiry e especiarias</div>
           </div>
@@ -1005,7 +1007,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-9-name" contenteditable="false">Brie</div>
-              <div class="pcard-price" data-eid="pz-9-price" contenteditable="false">R$ 99,00</div>
+              <div class="pcard-price" data-eid="pz-9-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 69</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 109</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-9-desc" contenteditable="false">Molho pomodoro, muçarela, queijo brie e geleia de damasco</div>
           </div>
@@ -1015,7 +1017,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-10-name" contenteditable="false">Marguerita</div>
-              <div class="pcard-price" data-eid="pz-10-price" contenteditable="false">R$ 89,00</div>
+              <div class="pcard-price" data-eid="pz-10-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 57</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 89</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-10-desc" contenteditable="false">Molho pomodoro, muçarela de búfala, manjericão fresco e azeite de oliva</div>
           </div>
@@ -1025,7 +1027,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-11-name" contenteditable="false">Quatro Queijos</div>
-              <div class="pcard-price" data-eid="pz-11-price" contenteditable="false">R$ 105,00</div>
+              <div class="pcard-price" data-eid="pz-11-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 69</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 109</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-11-desc" contenteditable="false">Molho pomodoro, muçarela, gorgonzola, catupiry, parmesão e especiarias</div>
           </div>
@@ -1035,7 +1037,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-12-name" contenteditable="false">Calabresa</div>
-              <div class="pcard-price" data-eid="pz-12-price" contenteditable="false">R$ 97,00</div>
+              <div class="pcard-price" data-eid="pz-12-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 61</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 99</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-12-desc" contenteditable="false">Molho pomodoro, muçarela, calabresa, azeitona preta, cebola roxa e especiarias</div>
           </div>
@@ -1045,7 +1047,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-13-name" contenteditable="false">Portuguesa</div>
-              <div class="pcard-price" data-eid="pz-13-price" contenteditable="false">R$ 109,00</div>
+              <div class="pcard-price" data-eid="pz-13-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 69</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 109</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-13-desc" contenteditable="false">Molho pomodoro, muçarela, presunto, calabresa, tomate, ovo, cebola roxa, azeitona preta e especiarias</div>
           </div>
@@ -1055,7 +1057,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-14-name" contenteditable="false">Parma</div>
-              <div class="pcard-price" data-eid="pz-14-price" contenteditable="false">R$ 129,00</div>
+              <div class="pcard-price" data-eid="pz-14-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 83</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 135</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-14-desc" contenteditable="false">Molho pomodoro, muçarela, tomate seco, presunto parma, parmesão, rúcula e especiarias — finalizada com ingredientes frios</div>
             <span class="pizza-tag ">Frios</span>
@@ -1066,7 +1068,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-15-name" contenteditable="false">Camarão</div>
-              <div class="pcard-price" data-eid="pz-15-price" contenteditable="false">R$ 135,00</div>
+              <div class="pcard-price" data-eid="pz-15-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 82</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 137</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-15-desc" contenteditable="false">Molho pomodoro, muçarela, camarão, catupiry, salsa e especiarias</div>
             <span class="pizza-tag chef">Premium</span>
@@ -1077,7 +1079,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-16-name" contenteditable="false">Burrata Al Pesto</div>
-              <div class="pcard-price" data-eid="pz-16-price" contenteditable="false">R$ 135,00</div>
+              <div class="pcard-price" data-eid="pz-16-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 89</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 147</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-16-desc" contenteditable="false">Molho pomodoro, muçarela, parmesão, presunto parma, burrata, pesto de manjericão e especiarias — finalizada com ingredientes frios</div>
             <span class="pizza-tag chef">Premium</span>
@@ -1088,7 +1090,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-17-name" contenteditable="false">Pepperoni</div>
-              <div class="pcard-price" data-eid="pz-17-price" contenteditable="false">R$ 98,00</div>
+              <div class="pcard-price" data-eid="pz-17-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 61</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 99</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-17-desc" contenteditable="false">Molho pomodoro, muçarela, pepperoni, catupiry e especiarias</div>
           </div>
@@ -1098,7 +1100,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-18-name" contenteditable="false">Carbonara</div>
-              <div class="pcard-price" data-eid="pz-18-price" contenteditable="false">R$ 112,00</div>
+              <div class="pcard-price" data-eid="pz-18-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 68</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 112</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-18-desc" contenteditable="false">Base de fior di latte, guanciale, creme de gema de ovos, parmesão ralado e pimenta do reino</div>
           </div>
@@ -1108,7 +1110,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-19-name" contenteditable="false">Al Tonno</div>
-              <div class="pcard-price" data-eid="pz-19-price" contenteditable="false">R$ 98,00</div>
+              <div class="pcard-price" data-eid="pz-19-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 54</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 98</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-19-desc" contenteditable="false">Molho pomodoro, muçarela, atum, cebola roxa, azeitona preta e especiarias</div>
           </div>
@@ -1118,7 +1120,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-20-name" contenteditable="false">Amatriciana</div>
-              <div class="pcard-price" data-eid="pz-20-price" contenteditable="false">R$ 112,00</div>
+              <div class="pcard-price" data-eid="pz-20-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 68</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 112</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-20-desc" contenteditable="false">Molho pomodoro, fior di latte, guanciale, cebola roxa, pimenta do reino e parmesão ralado</div>
           </div>
@@ -1128,7 +1130,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-21-name" contenteditable="false">La Romanella</div>
-              <div class="pcard-price" data-eid="pz-21-price" contenteditable="false">R$ 109,00</div>
+              <div class="pcard-price" data-eid="pz-21-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 66</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 109</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-21-desc" contenteditable="false">Molho pomodoro, muçarela, guanciale, alho frito e parmesão</div>
           </div>
@@ -1138,7 +1140,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-22-name" contenteditable="false">La Coppa Bianca</div>
-              <div class="pcard-price" data-eid="pz-22-price" contenteditable="false">R$ 147,00</div>
+              <div class="pcard-price" data-eid="pz-22-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 147</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-22-desc" contenteditable="false">Molho pomodoro, muçarela, copa lombo, stracciatella, pesto de manjericão e especiarias</div>
           </div>
@@ -1148,7 +1150,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="pz-23-name" contenteditable="false">Regina Reale</div>
-              <div class="pcard-price" data-eid="pz-23-price" contenteditable="false">R$ 98,00</div>
+              <div class="pcard-price" data-eid="pz-23-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 59</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 98</span></div>
             </div>
             <div class="pcard-desc" data-eid="pz-23-desc" contenteditable="false">Molho pomodoro, muçarela, palmito de palmeira real e tomilho seco</div>
           </div>
@@ -1165,7 +1167,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="dolce-1-name" contenteditable="false">Nutella com Morango</div>
-              <div class="pcard-price" data-eid="dolce-1-price" contenteditable="false">R$ 86,00</div>
+              <div class="pcard-price" data-eid="dolce-1-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 55</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 89</span></div>
             </div>
             <div class="pcard-desc" data-eid="dolce-1-desc" contenteditable="false">Fina camada de muçarela, nutella e morango fatiado</div>
           </div>
@@ -1175,7 +1177,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="dolce-2-name" contenteditable="false">Siciliana</div>
-              <div class="pcard-price" data-eid="dolce-2-price" contenteditable="false">R$ 89,00</div>
+              <div class="pcard-price" data-eid="dolce-2-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 55</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 89</span></div>
             </div>
             <div class="pcard-desc" data-eid="dolce-2-desc" contenteditable="false">Fina camada de muçarela, ganache de chocolate branco com limão siciliano e raspas de limão</div>
           </div>
@@ -1185,7 +1187,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="dolce-3-name" contenteditable="false">Doce de Leite com Castanha</div>
-              <div class="pcard-price" data-eid="dolce-3-price" contenteditable="false">R$ 78,00</div>
+              <div class="pcard-price" data-eid="dolce-3-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 47</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 78</span></div>
             </div>
             <div class="pcard-desc" data-eid="dolce-3-desc" contenteditable="false">Fina camada de muçarela, doce de leite e castanha triturada</div>
           </div>
@@ -1195,7 +1197,7 @@ src="https://www.facebook.com/tr?id=714013251468155&ev=PageView&noscript=1"/></n
           <div class="pcard-body">
             <div class="pcard-top">
               <div class="pcard-name" data-eid="dolce-4-name" contenteditable="false">Banana</div>
-              <div class="pcard-price" data-eid="dolce-4-price" contenteditable="false">R$ 65,00</div>
+              <div class="pcard-price" data-eid="dolce-4-price" contenteditable="false"><span class="pcard-price-line"><span class="pcard-sz">Ind.</span> R$ 42</span><span class="pcard-price-line"><span class="pcard-sz">Grd.</span> R$ 65</span></div>
             </div>
             <div class="pcard-desc" data-eid="dolce-4-desc" contenteditable="false">Fina camada de muçarela, banana e açúcar com canela</div>
           </div>
